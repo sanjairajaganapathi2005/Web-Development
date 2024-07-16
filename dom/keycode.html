@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Key Logger</title>
+</head>
+<body>
+  <h2>Enter A- Z </h2>
+  <input type="text" id="keyInput">
+  <ul id="keyList"></ul>
+
+  <script>
+
+    const keyInput = document.getElementById('keyInput');
+    const keyList = document.getElementById('keyList');
+    function logKeyPressed(event)
+     {
+        const keycode = event.keyCode;
+        const keyInputValue = event.key;
+        const li = document.createElement('li');
+        li.textContent = `Key  ${keyInputValue} : ${keycode}`; 
+        keyList.appendChild(li);
+      }
+
+    keyInput.addEventListener('keydown', logKeyPressed);
+  </script>
+</body>
+</html>

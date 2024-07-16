@@ -1,0 +1,19 @@
+<html>  
+<body>  
+  <h3>Example of the addEventListener() method.</h3>  
+  <button id="btn">Click me</button>  
+  <h4 id="para">Click count: <span id="clickCount">0</span></h4> 
+  <script>  
+    let clickCount = 0;
+    const btn = document.getElementById("btn");
+    const clickCountElement = document.getElementById("clickCount");
+
+    function handleClick() {
+      clickCount++;
+      clickCountElement.textContent = clickCount; 
+    }
+
+    btn.addEventListener("click", handleClick);
+  </script>  
+</body>  
+</html>  

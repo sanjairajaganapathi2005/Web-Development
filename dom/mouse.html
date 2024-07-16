@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Mouse Over and Mouse Out Example</title>
+  <style>
+    #box {
+      width: 150px;
+      height: 150px;
+      background-color: #ccc;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    function MouseOver() {
+      const box = document.getElementById('box');
+      box.style.backgroundColor = 'black';
+    }
+
+    function MouseOut() {
+      const box = document.getElementById('box');
+      box.style.backgroundColor = '#ccc';
+    }
+
+    function load() {
+      const box = document.getElementById('box');
+      box.addEventListener('mouseover', MouseOver);
+      box.addEventListener('mouseout', MouseOut);
+    }
+
+    document.addEventListener('DOMContentLoaded', load);
+  </script>
+</body>
+</html>

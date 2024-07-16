@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Triangle Types </title>
+        <script type="text/javascript">
+
+            var side1 = parseInt(window.prompt("Enter side 1 :"));
+            var side2 = parseInt(window.prompt("Enter side 2 :"));
+            var side3 = parseInt(window.prompt("Enter side 3 :"));
+            
+            var triangleType;
+            
+            if (side1 === side2 && side2 === side3) 
+            {
+                triangleType = "Equilateral triangle";
+            } 
+            else if (side1 === side2 || side1 === side3 || side2 === side3)
+            {
+                triangleType = "Isosceles triangle";
+            } 
+            else 
+            {
+                triangleType = "Scalene triangle";
+            }
+            
+            document.write("<h2>The triangle with this sides " + side1 + ", " + side2 + ", and " + side3 + " is a " + triangleType + ".</h2>");
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

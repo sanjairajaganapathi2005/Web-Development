@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value; // Corrected id name
+            var mobile = document.getElementById('number').value;
+            var email = document.getElementById('mail').value;
+            var mailvali = /^[a-zA-Z0-9+@[a-zA-Z0-9]+(.[a-zA-Z])/;
+
+            if (name == null || name === "")
+            {
+                alert("Name can't be blank");
+                return false;
+            }
+            else if (password.length < 6) 
+            {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            } 
+            else if (password !== confirmPassword) 
+            { 
+                alert("Passwords do not match.");
+                return false;
+            } 
+            else if (isNaN(mobile) || mobile.length !== 10) 
+            {
+                alert("Please enter a valid 10-digit mobile number.");
+                return false;
+            } 
+            else if (!mailvali.test(email)) 
+            {
+                alert("Please enter a valid email address.");
+                return false;
+            } else 
+            {
+                document.writeln("<h1>name: " + name + "<br>Password: " + password + "<br>Mobile Number: " + mobile + "<br>Email: " + email + "<br>Validation Successful</h1>");
+                return true;
+            }          
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name"><br>
+        Password: <input type="password" id="password"><br>
+        Confirm Password: <input type="password" id="confirm_password"><br> <!-- Corrected id -->
+        Mobile number: <input type="text" id="number"><br>
+        Email: <input type="text" id="mail"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

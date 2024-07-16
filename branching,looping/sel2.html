@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Student Grade </title>
+        <script type="text/javascript">
+            var score = parseFloat(window.prompt("Enter Your Mark : ")); 
+
+            var grade;
+            if (score >= 95) {
+                grade = 'O';
+            } else if (score >= 90) {
+                grade = 'A+';
+            } else if (score >= 80) {
+                grade = 'A';
+            } else if (score >= 70) {
+                grade = 'B+';
+            } else if (score >= 60) {
+                grade = 'B';
+            } else if(score>=50) {
+                grade = 'C';
+            } else {
+                grade = 'U';
+            }
+            document.write("Student's grade is: " + grade);      
+        </script>
+    </head>
+<body>  </body>
+</html>

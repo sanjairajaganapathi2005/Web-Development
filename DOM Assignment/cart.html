@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>Multiple Mobile Brand Images</title>
+    <style>
+        .image-container {
+            display: flex;
+            margin: 70px;
+            flex-wrap: wrap;
+            justify-content: left;
+            gap: 150px;
+        }
+        .image-container img {
+            max-width: 280px;
+            height: auto;
+            cursor: pointer;
+        }
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background-color: #949292;
+            padding: 20px;
+
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cart-item img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+        
+    <h1>Choose the Mobile Images!</h1>
+    <div class="image-container" id="imageContainer">
+        <img src="apple.jpg" alt="apple 1"><br>
+        <img src="redmi.jpg" alt="redmi 2"><br>
+        <img src="realme.jpg" alt="realme 3"><br>
+        <img src="oppo.jpg" alt="oppo 4"><br>
+        <img src="vivo.jpg" alt="vivo 5"><br>
+        <img src="poco.jpg" alt="poco 6"><br>
+        <img src="samsung.jpg" alt="samsung 7"><br>
+        <img src="infinix.jpg" alt="infinix 8"><br>
+        <img src="oneplus.jpg" alt="oneplus 9"><br>
+        <img src="nokia.jpg" alt="nokia 10"><br>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <h2>Cart Items</h2>
+        <div id="cartItems"></div>
+    </div>
+   
+    <script>
+        const imageContainer = document.getElementById('imageContainer');
+        const cartSidebar = document.getElementById('cartSidebar');
+        let cart = [];
+
+        function handleImageClick(event) {
+            if (event.target.tagName === 'IMG') {
+                const imageUrl = event.target.src;
+                if (!cart.includes(imageUrl)) {
+                    cart.push(imageUrl);
+                    renderCart();
+                } else {
+                    window.alert('Item is already in cart!');
+                }
+            }
+        }
+
+        function renderCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            cartItemsDiv.innerHTML = '';
+            cart.forEach(renderCartItem);
+        }
+
+        function renderCartItem(item, index) {
+            const cartItemsDiv = document.getElementById('cartItems');
+        
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'cart-item';
+        
+            const img = document.createElement('img');
+            img.src = item;
+            img.alt = 'Image';
+            img.style.maxWidth = '100px';
+        
+            const removeButton = createRemoveButton(index); 
+        
+            cartItemDiv.appendChild(img);
+            cartItemDiv.appendChild(removeButton);
+            cartItemsDiv.appendChild(cartItemDiv);
+        }
+
+        function createRemoveButton(index) {
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.onclick = function() {
+                cart.splice(index, true);
+                renderCart();
+            };
+            return removeButton;
+        }
+
+        imageContainer.addEventListener('click', handleImageClick,false);
+    </script>
+</body>
+</html>

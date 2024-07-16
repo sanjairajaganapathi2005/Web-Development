@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Mouseover for Abbreviation</title>
+<script>
+    function start() 
+    {
+        document.getElementById('move').addEventListener("mouseover",moveone,false);
+    }
+    function moveone()
+    {
+        document.getElementById('move').innerHTML="Artificial Intelligence";
+    }
+    window.addEventListener("load",start,false);
+</script>
+</head>
+<body>
+    <h3 id ='move'>AI</h3>
+</body>
+</html>
